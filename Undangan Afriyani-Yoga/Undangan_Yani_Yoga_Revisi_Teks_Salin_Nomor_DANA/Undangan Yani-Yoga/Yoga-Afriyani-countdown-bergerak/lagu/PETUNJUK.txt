@@ -1,0 +1,8 @@
+MUSIK UNDANGAN
+1. Masukkan file musik MP3 milik Anda ke folder ini.
+2. Ubah nama file menjadi: musik.mp3
+3. Pastikan susunan folder menjadi: lagu/musik.mp3
+4. Simpan semua file, lalu unggah ulang seluruh isi folder website ke Netlify Drop.
+
+Musik mulai dicoba saat tombol “Buka Undangan” ditekan. Jika musik belum tersedia, tombol musik akan memberi petunjuk.
+Gunakan lagu yang Anda punya izin untuk digunakan.

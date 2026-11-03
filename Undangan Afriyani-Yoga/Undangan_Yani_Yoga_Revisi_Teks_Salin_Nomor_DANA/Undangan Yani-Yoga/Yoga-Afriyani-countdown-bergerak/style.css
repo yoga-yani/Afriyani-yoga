@@ -1,0 +1,341 @@
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#f5eee8;color:#53251d;font-family:Georgia,"Times New Roman",serif}main{width:100%;max-width:560px;margin:0 auto;background:#fff;box-shadow:0 0 28px #4b21151c}.cover{position:relative;line-height:0}.cover img,.pages>img{display:block;width:100%;height:auto}.open-btn{position:absolute;left:50%;bottom:8.5%;transform:translateX(-50%);border:0;border-radius:30px;background:#7e271b;color:#fff;padding:13px 28px;font:600 14px Arial,sans-serif;box-shadow:0 4px 14px #0003;cursor:pointer}.names{min-height:520px;padding:65px 28px;text-align:center;background:linear-gradient(#f8f3ec,#ead9c7);display:flex;flex-direction:column;justify-content:center;align-items:center;border-top:7px solid #8c3020;border-bottom:7px solid #8c3020}.eyebrow{letter-spacing:3px;text-transform:uppercase;font:12px Arial,sans-serif;color:#9a5b43}.names h1{font-size:clamp(27px,7vw,39px);font-weight:normal;color:#7f291d;margin:13px 0}.names h2{font-size:18px;font-weight:normal;margin:7px 0}.names p{margin:5px 0}.amp{font-size:36px;color:#a76d4c;margin:8px}.rsvp{padding:35px 20px 45px;background:linear-gradient(145deg,#f3e7d8,#e4c7ad)}.form-card{background:#fffdf9;border:1px solid #c99b7a;border-radius:8px;padding:25px 22px;box-shadow:0 8px 24px #55281c18}.form-card h2{text-align:center;font-size:25px;font-weight:normal;margin:8px 0 24px}.form-card label{display:block;font:14px Arial,sans-serif;color:#42251e;margin:14px 0}.form-card input[type=text],.form-card input[type=number]{display:block;width:100%;padding:12px;border:1px solid #cdb8a9;border-radius:5px;margin-top:7px;font-size:15px}.form-card fieldset{border:0;padding:0;margin:18px 0}.form-card legend{font:14px Arial,sans-serif;margin-bottom:8px}.choice{display:flex!important;align-items:center;gap:10px;background:#f0ece8;padding:12px;border-radius:5px;margin:7px 0!important}.choice input{accent-color:#852d20}.send-btn{width:100%;border:0;border-radius:25px;background:#7e271b;color:white;padding:14px;font-size:15px;cursor:pointer;margin-top:8px}.small{font:12px/1.5 Arial,sans-serif;color:#806d62;text-align:center;margin:16px 0 0}footer{text-align:center;padding:22px;color:#8a5b49;font-size:13px;background:#f6eee7}@media(min-width:700px){body{padding:20px 0}.cover,.pages,.rsvp,footer{overflow:hidden}}
+/* Kartu lokasi Google Maps */
+.maps-card{margin:0;padding:34px 22px 38px;text-align:center;background:linear-gradient(145deg,#f8f0e7,#ead4bd);border-top:1px solid #d2b091;border-bottom:1px solid #d2b091}
+.maps-card h2{font-size:25px;font-weight:normal;margin:8px 0 12px;color:#64291f}
+.maps-card p{font-size:15px;line-height:1.6}
+.maps-address{font-weight:bold;color:#4b2921}
+.maps-btn{display:inline-block;margin:12px auto 5px;padding:13px 23px;border-radius:28px;background:#7e271b;color:#fff;text-decoration:none;font:600 14px Arial,sans-serif;box-shadow:0 4px 14px #0002;transition:transform .2s,box-shadow .2s}
+.maps-btn:hover{transform:translateY(-2px);box-shadow:0 7px 18px #0003}
+.maps-note{font:12px/1.6 Arial,sans-serif!important;color:#806d62;margin-bottom:0}
+/* Tombol musik mengambang */
+.music-btn{position:fixed;right:max(14px,calc((100vw - 560px)/2 + 14px));bottom:18px;z-index:20;display:flex;align-items:center;gap:8px;border:1px solid #d5b69c;border-radius:28px;padding:10px 15px;background:#fffaf3;color:#76291e;font:600 12px Arial,sans-serif;box-shadow:0 5px 18px #30130e2b;cursor:pointer}
+.music-icon{display:inline-flex;align-items:center;justify-content:center;width:23px;height:23px;border-radius:50%;background:#7e271b;color:#fff;font-size:17px}
+.music-btn.is-playing .music-icon{animation:music-spin 3s linear infinite}
+@keyframes music-spin{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.music-btn.is-playing .music-icon{animation:none}.maps-btn{transition:none}}
+
+/* Area klik transparan tepat di atas tombol "Lihat Lokasi" pada gambar acara */
+.event-image-wrap{position:relative;width:100%;line-height:0}
+.event-image-wrap>img{display:block;width:100%;height:auto}
+.event-map-hotspot{position:absolute;left:34.5%;top:81.3%;width:35%;height:4.2%;display:block;z-index:2;border-radius:30px;cursor:pointer}
+.event-map-hotspot:focus-visible{outline:3px solid #d9a441;outline-offset:3px}
+
+
+.countdown-baru {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    width: calc(100% - 30px);
+    max-width: 460px;
+    margin: 20px auto;
+    padding: 15px 10px;
+    background: rgba(255, 255, 255, 0.82);
+    border: 1px solid #d7b99b;
+    border-radius: 12px;
+    box-sizing: border-box;
+}
+
+.countdown-item {
+    flex: 1;
+    min-width: 0;
+    text-align: center;
+    color: #702819;
+}
+
+.countdown-item span {
+    display: block;
+    font-family: Georgia, serif;
+    font-size: clamp(24px, 5vw, 38px);
+    font-weight: bold;
+    line-height: 1.2;
+}
+/* Countdown tunggal, diletakkan setelah gambar informasi acara */
+.countdown-baru {
+  display:flex; justify-content:center; align-items:center; gap:12px;
+  width:calc(100% - 30px); max-width:460px; margin:20px auto;
+  padding:15px 10px; background:rgba(255,255,255,.92);
+  border:1px solid #d7b99b; border-radius:12px;
+}
+.countdown-item { flex:1; min-width:0; text-align:center; color:#702819; font:13px Arial,sans-serif; }
+.countdown-item span { display:block; font: bold clamp(24px,5vw,38px)/1.2 Georgia,serif; }
+.event-image-wrap { position:relative; width:100%; line-height:0; }
+.event-image-wrap>img { display:block; width:100%; height:auto; }
+.event-map-hotspot {
+  position:absolute; left:34.5%; top:81.3%; width:35%; height:4.2%;
+  display:block; z-index:5; border-radius:30px; cursor:pointer;
+}
+.event-map-hotspot:focus-visible { outline:3px solid #d9a441; outline-offset:3px; }
+.maps-link-wrap { text-align:center; padding:0 12px 12px; }
+.maps-btn { display:inline-block; margin:5px auto 12px; padding:13px 23px;
+  border-radius:28px; background:#7e271b; color:#fff; text-decoration:none;
+  font:600 14px Arial,sans-serif; box-shadow:0 4px 14px #0002; }
+@media(max-width:380px) { .countdown-baru { gap:5px; padding:12px 6px; } }
+
+
+/* Penataan akhir: satu countdown di bawah alamat, tepat di atas tombol Maps */
+.event-image-wrap {
+  position: relative;
+  width: 100%;
+  line-height: 0;
+}
+.event-image-wrap > img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.countdown-baru {
+  position: absolute;
+  left: 50%;
+  top: 73.5%;
+  transform: translateX(-50%);
+  z-index: 4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 76%;
+  max-width: 390px;
+  margin: 0;
+  padding: 2px 6px;
+  background: rgba(255, 253, 249, 0.94);
+  border: 1px solid #d7b99b;
+  border-radius: 8px;
+  box-shadow: 0 2px 7px rgba(70, 35, 20, 0.10);
+  line-height: 1;
+}
+.countdown-item {
+  flex: 1;
+  min-width: 0;
+  text-align: center;
+  color: #702819;
+  font: 8px Arial, sans-serif;
+}
+.countdown-item span {
+  display: block;
+  font: bold clamp(15px, 3.5vw, 18px)/1 Georgia, serif;
+}
+.event-map-hotspot {
+  position: absolute;
+  left: 34.5%;
+  top: 81.3%;
+  width: 35%;
+  height: 4.2%;
+  display: block;
+  z-index: 5;
+  border-radius: 30px;
+  cursor: pointer;
+}
+.event-map-hotspot:focus-visible {
+  outline: 3px solid #d9a441;
+  outline-offset: 3px;
+}
+
+
+/* Tombol transparan tepat di atas tulisan "Salin Nomor Rekening" pada gambar wedding gift */
+.gift-image-wrap { position: relative; width: 100%; line-height: 0; }
+.gift-image-wrap > img { display: block; width: 100%; height: auto; }
+.gift-copy-hotspot {
+  position: absolute; left: 24.5%; top: 72.5%; width: 51%; height: 8.5%;
+  z-index: 6; border: 0; border-radius: 999px; background: transparent;
+  cursor: pointer; padding: 0;
+}
+.gift-copy-hotspot:focus-visible { outline: 3px solid #d9a441; outline-offset: 3px; }
+.gift-copy-status {
+  position: absolute; left: 50%; top: 82%; transform: translateX(-50%);
+  z-index: 7; padding: 7px 12px; border-radius: 18px;
+  background: rgba(75, 35, 25, .92); color: #fff; font: 12px Arial, sans-serif;
+  line-height: 1.3; white-space: nowrap; opacity: 0; pointer-events: none;
+  transition: opacity .2s ease;
+}
+.gift-copy-status.is-visible { opacity: 1; }
+
+
+/* Perbaikan posisi countdown: tampil setelah tombol Lihat Lokasi, bukan menimpa teks gambar. */
+.event-image-wrap .countdown-baru {
+  position: relative;
+  left: auto;
+  top: auto;
+  transform: none;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  width: calc(100% - 48px);
+  max-width: 420px;
+  margin: 16px auto 26px;
+  padding: 10px 9px;
+  background: rgba(255, 253, 249, 0.97);
+  border: 1px solid #d7b99b;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(70, 35, 20, 0.12);
+  line-height: 1.15;
+}
+.event-image-wrap .countdown-item {
+  flex: 1;
+  min-width: 0;
+  text-align: center;
+  color: #702819;
+  font: 11px Arial, sans-serif;
+}
+.event-image-wrap .countdown-item span {
+  display: block;
+  margin-bottom: 2px;
+  font: bold clamp(19px, 4vw, 25px)/1.1 Georgia, serif;
+}
+@media (max-width: 380px) {
+  .event-image-wrap .countdown-baru {
+    width: calc(100% - 30px);
+    gap: 4px;
+    padding: 9px 5px;
+  }
+  .event-image-wrap .countdown-item { font-size: 10px; }
+  .event-image-wrap .countdown-item span { font-size: 18px; }
+}
+
+/* Countdown menyatu di dalam ilustrasi halaman acara, tepat di bawah tombol Lihat Lokasi */
+.event-image-wrap { position: relative; width: 100%; line-height: 0; }
+.event-image-wrap .countdown-baru {
+  position: absolute;
+  left: 50%;
+  top: auto;
+  bottom: 3.2%;
+  transform: translateX(-50%);
+  z-index: 4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  width: 76%;
+  max-width: 390px;
+  margin: 0;
+  padding: 7px 8px;
+  background: rgba(255, 250, 242, .96);
+  border: 1px solid #c99b72;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(70, 35, 20, .18);
+  line-height: 1.1;
+}
+.event-image-wrap .countdown-item {
+  flex: 1;
+  min-width: 0;
+  text-align: center;
+  color: #702819;
+  font: 10px Arial, sans-serif;
+}
+.event-image-wrap .countdown-item span {
+  display: block;
+  margin-bottom: 2px;
+  font: bold clamp(17px, 3.5vw, 23px)/1.05 Georgia, serif;
+}
+@media (max-width: 380px) {
+  .event-image-wrap .countdown-baru { width: 82%; gap: 3px; padding: 6px 4px; bottom: 2.8%; }
+  .event-image-wrap .countdown-item { font-size: 9px; }
+  .event-image-wrap .countdown-item span { font-size: 16px; }
+}
+
+
+/* Navigasi bawah maroon-krem dengan perpindahan halaman yang lembut */
+html { scroll-behavior: smooth; scroll-padding-top: 16px; }
+.cover, .pages > img, .event-image-wrap, .gift-image-wrap, .rsvp {
+  scroll-margin-top: 18px;
+}
+.bottom-nav {
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  z-index: 30;
+  width: min(100%, 560px);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 2px;
+  padding: 8px 5px calc(8px + env(safe-area-inset-bottom));
+  background: rgba(255, 250, 243, .97);
+  border-top: 1px solid #c99b72;
+  box-shadow: 0 -4px 18px rgba(55, 25, 17, .13);
+  backdrop-filter: blur(8px);
+}
+.bottom-nav a {
+  min-width: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  color: #702819;
+  text-decoration: none;
+  font: 10px Arial, sans-serif;
+  white-space: nowrap;
+  padding: 3px 1px;
+  border-radius: 8px;
+  transition: color .25s ease, background .25s ease, transform .25s ease;
+}
+.bottom-nav a:hover, .bottom-nav a:focus-visible {
+  color: #a36b35;
+  background: #f1e4d5;
+  transform: translateY(-2px);
+  outline: none;
+}
+.nav-symbol { font: 19px/1 Georgia, serif; color: #9b5b3e; }
+body { padding-bottom: 65px; }
+.music-btn { bottom: calc(76px + env(safe-area-inset-bottom)); }
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 850ms ease, transform 850ms cubic-bezier(.2,.7,.2,1);
+}
+.reveal-on-scroll.is-visible { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal-on-scroll { opacity: 1; transform: none; transition: none; }
+  .bottom-nav a { transition: none; }
+}
+
+/* Navigasi lengkap untuk seluruh halaman undangan */
+.bottom-nav {
+  justify-content: flex-start;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  padding-left: 7px;
+  padding-right: 7px;
+}
+.bottom-nav::-webkit-scrollbar { display: none; }
+.bottom-nav a {
+  flex: 0 0 64px;
+  min-width: 64px;
+  scroll-snap-align: center;
+  font-size: 9px;
+}
+.bottom-nav a .nav-symbol { font-size: 18px; }
+.bottom-nav a[aria-current="location"] {
+  color: #a36b35;
+  background: #f1e4d5;
+}
+
+
+/* Kartu dan tombol salin DANA */
+.dana-copy-card {
+  box-sizing: border-box; width: min(88%, 560px); margin: 18px auto 26px; padding: 18px 20px;
+  border: 1px solid rgba(127,36,25,.22); border-radius: 18px; background: linear-gradient(135deg,#fffdf8,#f1e5d4);
+  box-shadow: 0 8px 22px rgba(45,25,15,.12); text-align: center; color: #3d241d; line-height: 1.5;
+}
+.dana-copy-card p { margin: 0 0 12px; font-family: Arial,sans-serif; line-height: 1.6; }
+.dana-copy-card p strong { font-size: 1.35rem; letter-spacing: .08em; color: #1475bd; }
+.dana-copy-card p span { font-size: 1rem; }
+.dana-copy-button { border: 0; border-radius: 999px; padding: 11px 22px; background: #1475bd; color: white; font: 600 15px Arial,sans-serif; cursor: pointer; box-shadow: 0 3px 8px rgba(20,117,189,.2); }
+.dana-copy-button:focus-visible { outline: 3px solid #d9a441; outline-offset: 3px; }
+.dana-copy-status { display: block; min-height: 1.2em; margin-top: 8px; font: 12px Arial,sans-serif; color: #6b3c2c; }
+
+/* Personalisasi nama tamu pada halaman undangan utama, tepat di bawah tanggal. */
+.guest-cover{position:relative;line-height:0}
+.guest-cover>img{display:block;width:100%;height:auto}
+.guest-greeting{position:absolute;left:24%;right:24%;top:63.5%;z-index:3;text-align:center;line-height:1.2;color:#fff8e9;pointer-events:none;padding:9px 6px 11px;background:rgba(126,35,27,.94);border-radius:12px;box-shadow:0 2px 8px #45180f35}
+.guest-greeting span{display:block;font:italic clamp(12px,3.2vw,18px) Georgia,"Times New Roman",serif;margin-bottom:4px}
+.guest-greeting strong{display:block;font:600 clamp(14px,3.8vw,21px) Georgia,"Times New Roman",serif;overflow-wrap:anywhere}

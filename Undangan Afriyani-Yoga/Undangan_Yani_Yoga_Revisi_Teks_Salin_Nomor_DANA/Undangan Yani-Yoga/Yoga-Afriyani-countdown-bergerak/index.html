@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#7f2419">
+  <title>The Wedding of Yoga &amp; Afriyani</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <section class="cover" id="cover">
+    <img src="images/halaman-01.jpg" alt="Sampul undangan Yoga dan Afriyani" id="coverImage" role="button" tabindex="0" aria-label="Buka undangan">
+  </section>
+
+  <section class="pages" id="pages">
+    <div class="guest-cover" id="undangan">
+      <img src="images/halaman-02.jpg" alt="Wedding Invitation Yoga dan Afriyani">
+      <div class="guest-greeting" id="guestGreeting" aria-live="polite">
+        <span>Kepada Yth.</span>
+        <strong id="guestName">Tamu Undangan</strong>
+      </div>
+    </div>
+    <img id="ayat" src="images/halaman-03.jpg" alt="Kutipan QS Ar-Rum ayat 21">
+    <img id="pengantar" src="images/halaman-04.jpg" alt="Salam dan pengantar undangan serta foto pengantin">
+    <img id="mempelai" src="images/halaman-05.jpg" alt="Nama dan keluarga kedua mempelai">
+
+    <div class="event-image-wrap" id="acara">
+      <img src="images/halaman-06.jpg" alt="Informasi acara pernikahan">
+      <div class="countdown-baru" id="weddingCountdown" aria-label="Hitung mundur menuju acara">
+        <div class="countdown-item"><span id="days">00</span>Hari</div>
+        <div class="countdown-item"><span id="hours">00</span>Jam</div>
+        <div class="countdown-item"><span id="minutes">00</span>Menit</div>
+        <div class="countdown-item"><span id="seconds">00</span>Detik</div>
+      </div>
+      <a class="event-map-hotspot" href="https://maps.app.goo.gl/B3BpNtKX7pjTLEn97"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="Buka lokasi acara di Google Maps" title="Buka lokasi di Google Maps"></a>
+    </div>
+
+    <img id="galeri" src="images/halaman-07.jpg" alt="Galeri foto kenangan Yoga dan Afriyani">
+    <img id="kisah" src="images/halaman-08.jpg" alt="Cerita perjalanan cinta Yoga dan Afriyani">
+
+    <div class="gift-image-wrap" id="hadiah">
+      <img src="images/halaman-09.jpg" alt="Informasi wedding gift dan nomor rekening Bank Mandiri">
+      <button class="gift-copy-hotspot" id="copyAccountButton" type="button"
+        aria-label="Salin nomor rekening Bank Mandiri 1080031967384"
+        title="Salin nomor rekening"> </button>
+      <span class="gift-copy-status" id="copyAccountStatus" role="status" aria-live="polite"></span>
+    </div>
+    <img id="penutup" src="images/halaman-11.jpg" alt="Ucapan matur suwun">
+  </section>
+
+  <section class="rsvp" id="rsvp">
+    <div class="form-card">
+      <p class="eyebrow">Konfirmasi Kehadiran</p>
+      <h2>Apakah bisa hadir?</h2>
+      <form id="rsvpForm">
+        <label>Nama Tamu
+          <input id="guestName" type="text" placeholder="Masukkan nama" required>
+        </label>
+        <fieldset>
+          <legend>Pilih konfirmasi</legend>
+          <label class="choice"><input type="radio" name="attendance" value="Hadir" required> Hadir</label>
+          <label class="choice"><input type="radio" name="attendance" value="Insyaallah hadir"> Insyaallah hadir</label>
+          <label class="choice"><input type="radio" name="attendance" value="Maaf tidak bisa hadir"> Maaf tidak bisa hadir</label>
+        </fieldset>
+        <label>Jumlah Tamu
+          <input id="guestCount" type="number" min="1" max="20" value="1" required>
+        </label>
+        <button class="send-btn" type="submit">Kirim Konfirmasi</button>
+      </form>
+      <p class="small">Tombol kirim akan membuka WhatsApp dengan pesan konfirmasi yang sudah disiapkan. Pilih kontak tujuan di WhatsApp.</p>
+    </div>
+  </section>
+  <footer>Yoga &amp; Afriyani · 21 November 2026</footer>
+</main>
+
+
+<nav class="bottom-nav" aria-label="Navigasi undangan">
+  <a href="#cover" aria-label="Beranda"><span class="nav-symbol">⌂</span><span>Home</span></a>
+  <a href="#undangan"><span class="nav-symbol">✉</span><span>Undangan</span></a>
+  <a href="#ayat"><span class="nav-symbol">۞</span><span>Ayat</span></a>
+  <a href="#pengantar"><span class="nav-symbol">❧</span><span>Salam</span></a>
+  <a href="#mempelai"><span class="nav-symbol">♕</span><span>Mempelai</span></a>
+  <a href="#acara"><span class="nav-symbol">♡</span><span>Acara</span></a>
+  <a href="#galeri"><span class="nav-symbol">▧</span><span>Galeri</span></a>
+  <a href="#kisah"><span class="nav-symbol">ღ</span><span>Kisah</span></a>
+  <a href="#hadiah"><span class="nav-symbol">♧</span><span>Hadiah</span></a>
+  <a href="#rsvp"><span class="nav-symbol">✓</span><span>RSVP</span></a>
+  <a href="#penutup"><span class="nav-symbol">❀</span><span>Penutup</span></a>
+</nav>
+
+<audio id="weddingMusic" loop preload="none">
+  <source src="lagu/music.mp3" type="audio/mpeg">
+</audio>
+<button class="music-btn" id="musicToggle" type="button" aria-label="Putar musik undangan" aria-pressed="false">
+  <span class="music-icon">♫</span><span id="musicLabel">Putar Musik</span>
+</button>
+<script src="script.js"></script>
+</body>
+</html>
